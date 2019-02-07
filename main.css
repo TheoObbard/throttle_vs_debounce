@@ -13,7 +13,7 @@ body {
 button {
   font-size: 18px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  margin: 10px;
+  margin-left: 50%;
   height: 50px;
   width: 100px;
   background-color: black;
@@ -27,7 +27,8 @@ p {
 }
 
 .left, .right {
-  width: 300px;
+  width: 600px;
+  margin: 10px;
 }
 
 code {
@@ -35,4 +36,8 @@ code {
   border: 1px solid #999;
   display: block;
   padding: 20px;
+}
+
+.image {
+  width: 500px;
 }

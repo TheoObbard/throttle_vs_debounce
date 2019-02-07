@@ -20,7 +20,8 @@ function throttle(func, timeLimit) {
 }
 
 let colorChange = throttle(function () {
-  let colors = ['orange', 'red', 'blue', 'green', 'yellow', 'brown', 'purple', 'black'];
+  let colors = ['orange', 'red', 'blue', 'green', 'brown', 
+                'purple', 'black'];
   let btn = document.getElementsByClassName('throttle')
   let num = Math.floor((10 * (Math.random(0))) % colors.length)
   btn[0].style.backgroundColor = `${colors[num]}`
