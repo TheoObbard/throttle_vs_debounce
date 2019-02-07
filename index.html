@@ -13,20 +13,75 @@
 
 <body>
   <h2 class="title">Throttle vs. Debounce - Ultimate smackdown</h2>
+  <p>The buttons both change color when clicked, and both have a one second timer set. <br> Play around with clicking them at different intervals to see if you can figure out the difference.</p>
   <div class='buttons'>
     <div class="left">
       <button class='throttle' onClick={colorChange()}>throttle</button>
       <h3>What it does</h3>
-      <p>Throttle allows you to click a button (or perform any action) 
+      <p>
+        Throttle allows you to click a button (or perform any action) 
         as many times as you want, however it limits the number of times
         that the funtion will be executed. This leads to a delayed response
         for every action that's triggered. Throttle does not care about if 
         a user is clicking or not when the time limit is over. It will just
         fire one more time and then stop.
       </p>
+      <h3>How to remember it</h3>
+      <p>
+        Like the throttle on a car limits air and gas, the throttle function
+        limits how many callbacks can be made. It doesn't have any impact on 
+        the speed that the first call is made (so you get fast response), 
+        and the length you wait between calls is strictly determined by the 
+        Timeout you set.
+      </p>
+      <h3>Code</h3>
+      <code>
+        function throttle(func, timeLimit) {
+          let lastFunc;
+          let lastRan;
+        return function () {
+        const context = this;
+        const args = arguments;
+        if (!lastRan) {
+        func.apply(context, args);
+        lastRan = Date.now();
+        } else {
+        clearTimeout(lastFunc);
+        lastFunc = setTimeout(function () {
+        if ((Date.now() - lastRan) >= timeLimit) {
+        func.apply(context, args);
+        lastRan = Date.now();
+        }
+        }, timeLimit - (Date.now() - lastRan));
+        }
+        }
+        }
+        
+        let colorChange = throttle(function () {
+        let colors = ['orange', 'red', 'blue', 'green', 'yellow'];
+        let btn = document.getElementsByClassName('throttle')
+        let num = Math.floor((10 * (Math.random(0))) % colors.length)
+        btn[0].style.backgroundColor = `${colors[num]}`
+        }, 1000)
+
+      </code>
     </div>
     <div class="right">
       <button class='debounce' onClick={adjustColor()}>debounce</button>
+      <h3>What it does</h3>
+      <p>
+        Debounce is simpler in my opinion than throttle. Debounce will trigger
+        only once, and it happens when the action has finished AND a timeout 
+        has completely run. This could be useful for something like typing 
+        in a search bar or resizing a window where you want something to be
+        done before you fire the callback. 
+      </p>
+      <h3>How to remember it</h3>
+      <p>
+        Debounce is like that friend who will always come through and do what 
+        you asked but they'll literally wait until you asked so long ago that 
+        you forgot anyway. 
+      </p>
     </div>
   </div>
 </body>

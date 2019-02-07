@@ -19,8 +19,8 @@ function debounce(func, wait, immediate) {
 }
 
 let adjustColor = debounce(function () {
-  let colors = ['pink', 'black', 'purple', 'brown', 'white'];
+  let colors = ['orange', 'red', 'blue', 'green', 'yellow', 'brown', 'purple', 'black'];
   let btn = document.getElementsByClassName('debounce')
   let num = Math.floor((10 * (Math.random(0))) % colors.length)
   btn[0].style.backgroundColor = `${colors[num]}`
-}, 2000)
+}, 1000)
