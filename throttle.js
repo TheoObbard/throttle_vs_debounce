@@ -1,3 +1,4 @@
+
 function throttle(func, timeLimit) {
   let lastFunc;
   let lastRan;
@@ -26,3 +27,5 @@ let colorChange = throttle(function () {
   let num = Math.floor((10 * (Math.random(0))) % colors.length)
   btn[0].style.backgroundColor = `${colors[num]}`
 }, 1000)
+
+
