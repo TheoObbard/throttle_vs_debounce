@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>testing</title>
+  <title>Throttle&Debounce</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   <script src='throttle.js'></script>
@@ -12,9 +12,23 @@
 </head>
 
 <body>
-  <h2>Throttle Vs. Debounce</h2>
-  <button class='throttle' onClick={colorChange()}>throttle</button>
-  <button class='debounce' onClick={adjustColor()}>debounce</button>
+  <h2 class="title">Throttle vs. Debounce - Ultimate smackdown</h2>
+  <div class='buttons'>
+    <div class="left">
+      <button class='throttle' onClick={colorChange()}>throttle</button>
+      <h3>What it does</h3>
+      <p>Throttle allows you to click a button (or perform any action) 
+        as many times as you want, however it limits the number of times
+        that the funtion will be executed. This leads to a delayed response
+        for every action that's triggered. Throttle does not care about if 
+        a user is clicking or not when the time limit is over. It will just
+        fire one more time and then stop.
+      </p>
+    </div>
+    <div class="right">
+      <button class='debounce' onClick={adjustColor()}>debounce</button>
+    </div>
+  </div>
 </body>
 
 </html>
